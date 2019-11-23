@@ -1,0 +1,73 @@
+drop table product;
+
+drop table category;
+
+drop table seller;
+
+drop table brand;
+
+create table seller(
+id bigint primary key auto_increment ,
+ name varchar(50)
+);
+
+insert into seller(name) values ('seller_1');
+
+insert into seller(name) values ('seller_2');
+
+insert into seller(name) values ('seller_3');
+
+insert into seller(name) values ('seller_4');
+
+insert into seller(name) values ('seller_5');
+
+create table category (id bigint primary key auto_increment, name varchar(10));
+
+insert into category (name) values ('PANTS');
+insert into category (name) values ('SOCKS');
+insert into category (name) values ('CAPS');
+insert into category (name) values ('SHOES');
+insert into category (name) values ('SHIRTS');
+
+
+create table brand (id bigint primary key auto_increment, name varchar(10));
+
+insert into brand(name) values ('BRAND1');
+insert into brand(name) values ('BRAND2');
+insert into brand(name) values ('BRAND3');
+insert into brand(name) values ('BRAND4');
+insert into brand(name) values ('BRAND5');
+
+
+
+create table product (
+id bigint primary key auto_increment,
+category_id bigint not null,
+name varchar(50),
+color varchar(10) not null,
+brand_id bigint not null,
+size varchar(10) not null,
+price int not null,
+seller_id bigint,
+constraint fk_constarint_1 foreign key (seller_id) references seller(id),
+constraint fk_constarint_2 foreign key (category_id) references category(id),
+constraint fk_constarint_3 foreign key (brand_id) references brand(id)
+);
+
+
+insert into product (category_id,name,color,brand_id,size,price,seller_id) values (1,'pant 1','blue',1,'small',100,1);
+
+insert into product (category_id,name,color,brand_id,size,price,seller_id) values (2,'sock 1','black',2,'medium',102,2);
+
+insert into product (category_id,name,color,brand_id,size,price,seller_id) values (3,'cap 1','white',3,'large',105,1);
+
+insert into product (category_id,name,color,brand_id,size,price,seller_id) values (3,'cap 2','red',4,'small',115,2);
+
+insert into product (category_id,name,color,brand_id,size,price,seller_id) values (3,'pant 2','black',1,'large',99,3);
+
+insert into product (category_id,name,color,brand_id,size,price,seller_id) values (4,'shoe 1','red',3,'small',81,4);
+
+insert into product (category_id,name,color,brand_id,size,price,seller_id) values (2,'sock 2','white',4,'medium',100,4);
+
+
+
