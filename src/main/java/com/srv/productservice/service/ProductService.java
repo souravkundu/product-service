@@ -20,9 +20,14 @@ public interface ProductService {
 	Map<String,List<Product>> groupByBrands( );
 	Map<String,List<Product>> groupByColors( );
 	Map<String,List<Product>> groupBySizes( );
+	
+	Map<String,List<Product>> groupByBrandsValue(String key);
+	Map<String,List<Product>> groupByColorsValue(String key);
+	Map<String,List<Product>> groupBySizesValue(String key);
 	List<Product> findAllProductsByCategory(String category);
 
 
 
 	List<Brand> findAllBrands();
+
 }

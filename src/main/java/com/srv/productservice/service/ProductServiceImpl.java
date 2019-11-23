@@ -139,4 +139,34 @@ public class ProductServiceImpl implements ProductService {
 		return brandDAO.findAll();
 	}
 
+
+	@Override
+	public Map<String, List<Product>>  groupByBrandsValue(String key) {
+		// TODO Auto-generated method stub
+		Map<String, List<Product>> map = new HashMap<>();
+	    map.put(key, groupByBrands().get(key));
+	    return map;
+	}
+
+
+	@Override
+	public Map<String, List<Product>>  groupByColorsValue(String key) {
+		// TODO Auto-generated method stub
+		Map<String, List<Product>> map = new HashMap<>();
+		map.put(key, groupByColors().get(key));
+		return map;
+	}
+
+
+	@Override
+	public Map<String, List<Product>>  groupBySizesValue(String key) {
+		// TODO Auto-generated method stub
+		Map<String, List<Product>> map = new HashMap<>();
+		map.put(key, groupBySizes().get(key));
+		return map;
+	}
+
+
+	
+
 }
